@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import 'bootstrap';
+import ItemLIstContainer from './components/ItemListContainer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <NavBar>
 
       </NavBar>
+      <ItemLIstContainer nombreArticulo="Prueba" />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
