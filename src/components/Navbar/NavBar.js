@@ -36,13 +36,7 @@ function NavBar() {
       </Container>
       
     </Navbar>
-  </>
-   
-  
-    
-
-
-    
+  </>   
   );
 }
 
