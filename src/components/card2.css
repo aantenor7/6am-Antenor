@@ -1,0 +1,9 @@
+.card-counter {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 30%;
+
+} 

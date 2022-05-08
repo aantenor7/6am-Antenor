@@ -1,13 +1,35 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
-const ItemLIstContainer = (prop) =>
-{
-  return (
-    <>
-    <ListGroup as="ul">
-    <ListGroup.Item as="li" active>{prop.nombreArticulo}  </ListGroup.Item>
-  </ListGroup>
-  </>
+import { useEffect, useState } from "react";
+import {producto} from "../../productos.js";
+import ItemList from "../ItemList/itemList.js";
+
+const ItemLIstContainer = () => {
+  const [items,setItems] = useState([]);
+
+useEffect(() =>{
+          setTimeout(() => {
+            
+          
+    const data = new Promise((resolve, reject) =>{
+    resolve (producto);
+      });
+
+    data.then((data) =>{
+    setItems(data)
+
+    });
+
+    data.catch((err) =>{
+    console.log(err)
+}
+);
+}, 2000);
+}, []);  
+  
+return (
+    <>  
+    <ItemList items={items} />
+    </>
   );      
 };
 
