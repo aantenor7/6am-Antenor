@@ -1,36 +1,42 @@
-import React from "react";
+import React from 'react';
 import { useEffect, useState } from "react";
-import {producto} from "../../productos.js";
-import ItemList from "../ItemList/itemList.js";
+import Item from "../Item/item";
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import "./itemList.css";
 
-const ItemLIstContainer = () => {
-  const [items,setItems] = useState([]);
+import "../card2.css";
 
-useEffect(() =>{
-          setTimeout(() => {
-            
+const ItemListContainer = () => {
+ 
+const [items,setItems] = useState([]); 
+
+  useEffect(() =>{
+            axios('https://www.breakingbadapi.com/api/characters').then((res) =>
+              setItems(res.data)
+              
+            );
+  },[]);
+
+
+  return (
+    <div>
+      <div className='ItemList-container'>
+      {items.map((item) => { 
+        return(
+          <div key={item.char_id}>
           
-    const data = new Promise((resolve, reject) =>{
-    resolve (producto);
-      });
+          <Link to={`/detail/${item.char_id}`}>
+              <Item data={item}/>
+            </Link>
+                
+              </div>
 
-    data.then((data) =>{
-    setItems(data)
-
-    });
-
-    data.catch((err) =>{
-    console.log(err)
+        );
+      })}
+      </div>
+    </div>
+  )
 }
-);
-}, 2000);
-}, []);  
-  
-return (
-    <>  
-    <ItemList items={items} />
-    </>
-  );      
-};
 
-export default ItemLIstContainer; 
+export default ItemListContainer;

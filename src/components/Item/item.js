@@ -1,31 +1,35 @@
 import React from 'react';
-import { Card,CardGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import Carrito from "../Counter2";
 import "../card2.css";
 
-const item = ({item}) => {
-    const {name,price,img} = item;   
+
+const item = ({data}) => {
+    
   return (  
-   <div>
+   
 
-<CardGroup className="card-counter">
-
-  <Card>
-    <Card.Img variant="top" src={img} />
+<div>       
+  
+  <Card className='card text-center'>
+    <Card.Img variant="top" src={data.img} />
+    
     <Card.Body>
-      <Card.Title>{name}</Card.Title>
+      <Card.Title>{data.name}</Card.Title>
       <Card.Text>
-        {price}
+        {data.char_id}
       </Card.Text>
     </Card.Body>
     <Card.Footer>
     <Carrito></Carrito>
     </Card.Footer>
   </Card>
-</CardGroup>
   
   
-   </div>
+</div>  
+
+
+   
   )
 }
 

@@ -1,13 +1,9 @@
 import { Navbar } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import { Nav } from 'react-bootstrap';
-import  swal  from 'sweetalert';
+import { Nav, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidge from './CartWidge'
-
-const pulsar = ()=> {
-  swal("Esta Seccion Se Encuentra en Construcción");
-}
+import { Link } from 'react-router-dom';
 
 
 function NavBar() {
@@ -17,21 +13,24 @@ function NavBar() {
 
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#6am"> 
+        <Navbar.Brand><Link to='/'> 
              <img src="./logo6am.jpg" width="70" height="55" alt="logo"/>
+             </Link>
           </Navbar.Brand>
      
       <Nav className="me-auto">
-        <Nav.Link href="#home" onClick={()=>{pulsar()}}>Home</Nav.Link>
-        <Nav.Link href="#Productos" onClick={()=>{pulsar()}} >Productos</Nav.Link>
-        <Nav.Link href="#Fotos" onClick={()=>{pulsar()}}>Fotos</Nav.Link>
+        <Nav.Link><Link to="/">Home</Link></Nav.Link>
+        <NavDropdown title="Productos" id="basic-nav-dropdown">
+          <NavDropdown.Item ><Link to='/Men'>Men</Link> </NavDropdown.Item>
+          <NavDropdown.Item ><Link to='/Woman'>Woman</Link></NavDropdown.Item>
+          <NavDropdown.Item ><Link to='/Kids'>Kids</Link></NavDropdown.Item>
+        </NavDropdown>
+        <Nav.Link> <Link to="/Contact">Contacto</Link></Nav.Link>
         
       </Nav>
       <Nav className="nav justify-content-end">
-        <Nav.Link href="#Fotos" onClick={()=>{pulsar()}}><CartWidge/></Nav.Link>
+        <Nav.Link ><Link to='/Carrito'><CartWidge/></Link></Nav.Link>
         </Nav>
-          
-          <Nav.Link href="#Cart" ></Nav.Link>
           
       </Container>
       
