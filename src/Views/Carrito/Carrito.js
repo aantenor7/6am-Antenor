@@ -1,9 +1,10 @@
 import React from 'react';
-
-import "../Carrito/carrito.css" 
-
-
+import "../Carrito/carrito.css";
+  
+  
 const Carrito = () => {
+
+  
   return (
     
       <div className="shell">
@@ -16,7 +17,7 @@ const Carrito = () => {
             </div>
             <div class="wsk-cp-text">
               <div class="category">
-                <span>Ethnic</span>
+                <span>HOLA</span>
               </div>
               <div class="title-product">
                 <h3>My face not my heart</h3>
