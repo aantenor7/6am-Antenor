@@ -11,25 +11,25 @@ console.log(data);
 <div>       
   
 <div className="shell">
-        <div class="container">
-      <div class="row">
+        <div className="container">
+      <div className="row">
         <div>
-          <div class="wsk-cp-product">
-            <div class="wsk-cp-img">
-              <img src={data.img} alt="Product" class="img-responsive" />
+          <div className="wsk-cp-product">
+            <div className="wsk-cp-img">
+              <img src={data.img} alt="Product" className="img-responsive" />
             </div>
-            <div class="wsk-cp-text">
-              <div class="category">
+            <div className="wsk-cp-text">
+              <div className="category">
                 <span>{data.nickname}</span>
               </div>
-              <div class="title-product">
+              <div className="title-product">
                 <h3>{data.name}</h3>
               </div>
-              <div class="description-prod">
+              <div className="description-prod">
                 <p>{data.portrayed}</p>
               </div>
-              <div class="card-footer">
-                <div class="wcf-left"><span class="price">{data.birthday}</span></div>
+              <div className="card-footer">
+                <div className="wcf-center"><span className="price"><Carrito></Carrito></span></div>
                 
               </div>
     
