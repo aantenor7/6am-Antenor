@@ -1,18 +1,24 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import Item from "../Item/item";
+import Item from "../../components/Item/item";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import "./itemList.css";
+import "../../components/Container/itemList.css";
+import {useParams} from 'react-router-dom';
+import "../../components/card2.css";
 
-import "../card2.css";
+const Serie = () => {
 
-const ItemListContainer = () => {
- 
-const [items,setItems] = useState([]); 
+  let {category} = useParams();
+  
 
+  const [items,setItems] = useState([]); 
+   
+    
   useEffect(() =>{
-            axios('https://www.breakingbadapi.com/api/characters?').then((res) =>
+    
+ 
+     
+            axios('https://www.breakingbadapi.com/api/characters?category=').then((res) =>
               setItems(res.data)
               
             );
@@ -26,9 +32,9 @@ const [items,setItems] = useState([]);
         return(
           <div key={item.char_id}>
           
-          <Link to={`/detail/${item.char_id}`}>
+          
               <Item data={item}/>
-            </Link>
+            
                 
               </div>
 
@@ -39,4 +45,4 @@ const [items,setItems] = useState([]);
   )
 }
 
-export default ItemListContainer;
+export default Serie;

@@ -1,6 +1,6 @@
 import { Navbar } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import { Nav, NavDropdown } from 'react-bootstrap';
+import { Nav, NavDropdown,Form,FormControl,Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidge from './CartWidge'
 import { Link } from 'react-router-dom';
@@ -20,14 +20,22 @@ function NavBar() {
      
       <Nav className="me-auto">
         <Nav.Link><Link to="/">Home</Link></Nav.Link>
-        <NavDropdown title="Productos" id="basic-nav-dropdown">
-          <NavDropdown.Item ><Link to='/Men'>Men</Link> </NavDropdown.Item>
-          <NavDropdown.Item ><Link to='/Woman'>Woman</Link></NavDropdown.Item>
-          <NavDropdown.Item ><Link to='/Kids'>Kids</Link></NavDropdown.Item>
+        <NavDropdown title="Personajes" id="basic-nav-dropdown">
+          <NavDropdown.Item ><Link to='/BetterCalSoul'>Better Cal Soul</Link> </NavDropdown.Item>
+          <NavDropdown.Item ><Link to='/BreakingBad'>Breaking Bad</Link></NavDropdown.Item>
         </NavDropdown>
         <Nav.Link> <Link to="/Contact">Contacto</Link></Nav.Link>
         
       </Nav>
+      <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-light" type="submit">Search</Button>
+      </Form>
       <Nav className="nav justify-content-end">
         <Nav.Link ><Link to='/Carrito'><CartWidge/></Link></Nav.Link>
         </Nav>

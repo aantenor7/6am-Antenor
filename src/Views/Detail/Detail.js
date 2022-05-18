@@ -6,18 +6,15 @@ import Item from '../../components/Item/item';
 
 const Detail = () => {
   
-  let id = useParams();
-  let userID = id.id;
-
-  console.log(userID);
+  let {id} = useParams();
   
   const [itemdetail,setItemdetail] = useState([]);
   
   useEffect(() => {
-    axios(`https://www.breakingbadapi.com/api/characters/${userID}`).then((res)=>
+    axios(`https://www.breakingbadapi.com/api/characters/${id}`).then((res)=>
     setItemdetail(res.data));
 
-}, [userID]);
+}, [id]);
 
   return (
     <div>

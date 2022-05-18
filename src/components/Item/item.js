@@ -2,10 +2,13 @@ import React from 'react';
 import Carrito from "../Counter2";
 import "../card2.css";
 import "../Item/carrito.css";
+import {Link}  from 'react-router-dom';
+
 
 const item = ({data}) => {
-console.log(data);    
-  return (  
+   
+ 
+return (  
    
 
 <div>       
@@ -26,7 +29,8 @@ console.log(data);
                 <h3>{data.name}</h3>
               </div>
               <div className="description-prod">
-                <p>{data.portrayed}</p>
+              
+              <Link to={`/serie/${data.category.replace(/ /g,'')}`}>{data.category}</Link>
               </div>
               <div className="card-footer">
                 <div className="wcf-center"><span className="price"><Carrito></Carrito></span></div>
