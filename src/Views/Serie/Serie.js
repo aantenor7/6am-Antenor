@@ -8,20 +8,20 @@ import "../../components/card2.css";
 
 const Serie = () => {
 
-  let {category} = useParams();
   
+  let {category} = useParams();
 
   const [items,setItems] = useState([]); 
    
     
   useEffect(() =>{
-    
- 
-     
-            axios('https://www.breakingbadapi.com/api/characters?category=').then((res) =>
+       
+         if (category === "BeterCallSoul") 
+         { axios('https://www.breakingbadapi.com/api/characters?category=Better+Call+Saul').then((res) =>
               setItems(res.data)
               
             );
+          };
   },[]);
 
 
