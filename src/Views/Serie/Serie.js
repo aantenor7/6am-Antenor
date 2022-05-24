@@ -16,12 +16,12 @@ const Serie = () => {
     
   useEffect(() =>{
        
-         if (category === "BeterCallSoul") 
-         { axios('https://www.breakingbadapi.com/api/characters?category=Better+Call+Saul').then((res) =>
+          
+          axios(`https://www.breakingbadapi.com/api/characters?category=${category}`).then((res) =>
               setItems(res.data)
               
             );
-          };
+          
   },[]);
 
 

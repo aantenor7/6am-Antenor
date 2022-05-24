@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import  swal  from 'sweetalert';
 import "./card.css";
+import { Link } from 'react-router-dom';
 
 function Counter2 ()  {
 const [stock,setStock] = useState (5);    
@@ -44,10 +45,8 @@ const addToCart = () => {
                     <Button variant="primary" onClick={suma}>+</Button>
                     </Card.Text>
                                        
-                    <Button variant="primary" onClick={addToCart}>
-                        Add To Cart
-                                        
-                    </Button>
+                    <Button variant="primary" onClick={addToCart}>Add To Cart</Button>
+                    <Link to='/Carrito'><Button variant="primary">Ir al Carrito</Button></Link>
                     </div>
                     
         

@@ -4,6 +4,7 @@ import {useParams} from 'react-router';
 import axios from 'axios';
 import Item from '../../components/Item/item';
 
+
 const Detail = () => {
   
   let {id} = useParams();
@@ -20,7 +21,8 @@ const Detail = () => {
     <div>
       {itemdetail.map((item)=> {
       return(
-        <div key={item.char_id}>
+        <div key={item.char_id} className="detail">
+         
          <Item data={item} /> 
          </div>
       );  

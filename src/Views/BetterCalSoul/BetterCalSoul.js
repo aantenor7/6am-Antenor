@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import Item from "../../components/Item/item";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import "../../components/Container/itemList.css";
 
 import "../../components/card2.css";
