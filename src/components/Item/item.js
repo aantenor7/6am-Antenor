@@ -1,12 +1,15 @@
 import React from 'react';
-import Carrito from "../Counter2";
+import {Carrito} from "../Counter";
 import "../card2.css";
 import "../Item/carrito.css";
 import {Link}  from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import  swal  from 'sweetalert';
 
 
 const item = ({data}) => {
-   
+
+ 
  
 return (  
    
@@ -38,8 +41,11 @@ return (
               <Link to={`/serie/${data.category.replace(/ /g,'+')}`}>{data.category}</Link>
               </div>
               <div className="card-footer">
+
                 <div className="wcf-center"><span className="price"><Carrito></Carrito></span></div>
+                <Button variant="primary" onclick={()=> addToCart(data.char_id)}>Agregar al Carrito</Button>
                 
+                <Link to='/Carrito'><Button variant="primary">Ir al Carrito</Button></Link>
               </div>
     
         </div>

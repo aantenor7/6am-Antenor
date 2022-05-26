@@ -32,7 +32,7 @@ const resta = () => {
 const addToCart = () => {
     swal ('Tu Producto Se Agrego Correctamente al Carrito')
     setStock (stock - count)
-
+    console.log (data.char_id)
 }
         return (
             <div>
@@ -45,7 +45,7 @@ const addToCart = () => {
                     <Button variant="primary" onClick={suma}>+</Button>
                     </Card.Text>
                                        
-                    <Button variant="primary" onClick={addToCart}>Add To Cart</Button>
+                    <Button variant="primary">Agregar al Carrito</Button>
                     <Link to='/Carrito'><Button variant="primary">Ir al Carrito</Button></Link>
                     </div>
                     

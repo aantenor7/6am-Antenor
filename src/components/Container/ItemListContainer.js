@@ -2,9 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import Item from "../Item/item";
 import axios from 'axios';
-
 import "./itemList.css";
-
 import "../card2.css";
 
 const ItemListContainer = () => {
