@@ -20,9 +20,9 @@ function NavBar() {
      
       <Nav className="me-auto">
         <Nav.Link><Link to="/">Home</Link></Nav.Link>
-        <NavDropdown title="Personajes" id="basic-nav-dropdown">
-          <NavDropdown.Item ><Link to='/BetterCalSoul'>Better Cal Soul</Link> </NavDropdown.Item>
-          <NavDropdown.Item ><Link to='/BreakingBad'>Breaking Bad</Link></NavDropdown.Item>
+        <NavDropdown title="Estilos" id="basic-nav-dropdown">
+          <NavDropdown.Item ><Link to='/BlackAndWhite'>Black and White</Link> </NavDropdown.Item>
+          <NavDropdown.Item ><Link to='/Color'>Color</Link></NavDropdown.Item>
         </NavDropdown>
         <Nav.Link> <Link to="/Contact">Contacto</Link></Nav.Link>
         

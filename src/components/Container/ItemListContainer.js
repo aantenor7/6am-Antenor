@@ -1,40 +1,45 @@
-import React from 'react';
+import React from "react";
 import { useEffect, useState } from "react";
 import Item from "../Item/item";
-import axios from 'axios';
 import "./itemList.css";
 import "../card2.css";
+import { collection, query, getDocs, } from "firebase/firestore";
+import { db } from "../../Firebase/firebaseConfig";
 
 const ItemListContainer = () => {
- 
-const [items,setItems] = useState([]); 
+  const [paintings, setPaintings] = useState([]);
+  const [isLoading, setIsLoading] = useState([true]);
+  useEffect(() => {
+    const getPaintings = async () => {
+      const q = query(collection(db, "paintings"));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
 
-  useEffect(() =>{
-            axios('https://www.breakingbadapi.com/api/characters?').then((res) =>
-              setItems(res.data)
-              
-            );
-  },[]);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setPaintings(docs);
+    };
 
-
+    getPaintings();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+  
   return (
     <div>
-      <div className='ItemList-container'>
-      {items.map((item) => { 
-        return(
-          <div key={item.char_id}>
-          
-          
-              <Item data={item}/>
-          
-                
-              </div>
-
-        );
-      })}
+      <div className="ItemList-container">
+        {paintings.map((item) => {
+          return (
+            <div key={item.id}>
+              <Item data={item} />
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ItemListContainer;
