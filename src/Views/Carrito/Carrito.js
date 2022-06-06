@@ -9,9 +9,8 @@ const Carrito = () => {
   const [state, dispatch] = useReducer(carritoReducer, carritoInitialState);
   const [cart] = state;
 
-  const addToCart = (char_id) => {
-    console.log(char_id);
-    dispatch({ type: TYPES.ADD_TO_CART, payload: {} });
+  const addToCart = (id) => {
+    dispatch({ type: TYPES.ADD_TO_CART, payload:id });
   };
   const delFromCart = () => {
     dispatch({ type: TYPES.REMOVE_ONE_FROM_CART });

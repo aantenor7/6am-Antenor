@@ -9,12 +9,11 @@ import {
   query,
   where,
   getDocs,
-  
+  documentId,
 } from "firebase/firestore";
 import { db } from "../../Firebase/firebaseConfig";
 
-const Color = () => {
- 
+const Serie = () => {
   const { style } = useParams();
   const [paintings, setPaintings] = useState([]);
 
@@ -48,4 +47,4 @@ const Color = () => {
   );
 };
 
-export default Color;
+export default Serie;

@@ -5,13 +5,23 @@ import "../Item/carrito.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import swal from "sweetalert";
-import { useReducer } from "react";
-import { carritoReducer } from "../Reducers/carritoReducer";
-import { carritoInitialState } from "../Reducers/carritoReducer";
 import { TYPES } from "../../components/Actions/carritoActions";
+import { UseReducer } from "react";
+import { carritoReducer } from "../../components/Reducers/carritoReducer";
+import { carritoInitialState } from "../../components/Reducers/carritoReducer";
+
+
 
 const item = ({ data }) => {
+  //const [state, dispatch] = UseReducer(carritoReducer, carritoInitialState);
+  //const [cart] = state;
  
+  //const addToCart = (id) => {
+    //console.log(id);
+    //dispatch({ type: TYPES.ADD_TO_CART, payload: {} });
+  //};
+  
+
   return (
     <div>
       <div className="shell">
@@ -31,14 +41,14 @@ const item = ({ data }) => {
                 </div>
               
                 <div className="wsk-cp-text">
-                  <div className="category">
-                    <span> ${data.price} </span>
+                <div className="category">
+                  <span> ${data.price} </span>
                   </div>
                   <div className="title-product">
                     <h3>{data.name}</h3>
                   </div>
                   <div className="description-prod">
-                    <Link to={`/serie/${data.style}`}>
+                    <Link to={`/estilos/${data.style}`}>
                       {data.style}
                     </Link>
                   </div>
@@ -47,7 +57,7 @@ const item = ({ data }) => {
                       <span className="price"></span>
                       <Button
                         variant="primary"
-                        //onClick={() => addToCart(data.id)}
+                      //onClick={() => addToCart(data.id)}
                       >
                         Agregar al Carrito
                       </Button>

@@ -1,17 +1,31 @@
 import { TYPES } from "../Actions/carritoActions";
 import Item from "../Item/item";
+import { collection, query, getDoc,doc } from "firebase/firestore";
+import { db } from "../../Firebase/firebaseConfig";
+import { UseEffect, UseState } from "react";
 
-export const carritoInitialState = {
-  cart: [],
+export const carritoInitialState =  {
+      
+cart: []
+  
 };
 
 export function carritoReducer(state, action) {
   switch (action.type) {
     case TYPES.ADD_TO_CART: {
-      let newItem = state.items.find((item) => item.id === action.payload);
+      const docRef = doc(db, "paintings", "id");
+      const docSnap = getDoc(docRef);
+
+      if (docSnap === action.payload) {
+          console.log("Document data:", docSnap.data());
+    } else {
+         // doc.data() will be undefined in this case
+            console.log("No such document!");
+     }
+      
       return {
         ...state,
-        cart: [...state.cart, newItem],
+        cart: [...state.cart, ],
       };
     }
     case TYPES.REMOVE_ONE_FROM_CART: {
@@ -22,5 +36,5 @@ export function carritoReducer(state, action) {
     }
     default:
       return state;
-  }
-}
+  };
+};
