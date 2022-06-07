@@ -6,20 +6,21 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import swal from "sweetalert";
 import { TYPES } from "../../components/Actions/carritoActions";
-import { UseReducer } from "react";
+import { useReducer } from "react";
 import { carritoReducer } from "../../components/Reducers/carritoReducer";
 import { carritoInitialState } from "../../components/Reducers/carritoReducer";
 
 
 
-const item = ({ data }) => {
-  //const [state, dispatch] = UseReducer(carritoReducer, carritoInitialState);
-  //const [cart] = state;
+const Item = ({ data }) => {
+  
+  const [state, dispatch] = useReducer(carritoReducer, carritoInitialState);
+  const { cart } = state;
  
-  //const addToCart = (id) => {
-    //console.log(id);
-    //dispatch({ type: TYPES.ADD_TO_CART, payload: {} });
-  //};
+  const addToCart = (id) => {
+   
+    dispatch({ type: TYPES.ADD_TO_CART, payload:id });
+  };
   
 
   return (
@@ -57,7 +58,7 @@ const item = ({ data }) => {
                       <span className="price"></span>
                       <Button
                         variant="primary"
-                      //onClick={() => addToCart(data.id)}
+                      onClick={() => addToCart(data.id)}
                       >
                         Agregar al Carrito
                       </Button>
@@ -77,4 +78,4 @@ const item = ({ data }) => {
   );
 };
 
-export default item;
+export default Item;
