@@ -9,9 +9,12 @@ import Detail from "./Views/Detail/Detail";
 import Carrito from "./Views/Carrito/Carrito";
 import Estilos from "./Views/Estilos/Estilos";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import store from "../src/store";
+import {Provider} from 'react-redux';
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
     <div className="App">
       
@@ -29,6 +32,7 @@ function App() {
        
           </div>
           </Router>
+          </Provider>
   );
 };
 

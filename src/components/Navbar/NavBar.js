@@ -4,9 +4,12 @@ import { Nav, NavDropdown,Form,FormControl,Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidge from './CartWidge'
 import { Link } from 'react-router-dom';
-
+import {useSelector } from "react-redux";
 
 function NavBar() {
+  const state = useSelector((state) => state)
+  const cart = state.cart;
+  console.log('HOLA', cart);
   return (
     
     <>

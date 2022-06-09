@@ -1,13 +1,14 @@
 import React from "react";
-import { useReducer } from "react";
-import { carritoReducer } from "../../components/Reducers/carritoReducer";
-import { carritoInitialState } from "../../components/Reducers/carritoReducer";
 import Item from "../../components/Item/item";
 import { TYPES } from "../../components/Actions/carritoActions";
+import { useDispatch , useSelector } from "react-redux";
 
-const Carrito = ({data}) => {
-  const [state, dispatch] = useReducer(carritoReducer, carritoInitialState);
-  const [cart] = state;
+
+const Carrito = () => {
+  const state = useSelector((state) => state)
+  const cart = state.cart;
+  console.log('HOLA', cart);
+  const dispatch = useDispatch();
   
 
   const delFromCart = () => {
@@ -19,10 +20,19 @@ const Carrito = ({data}) => {
 
   return (
     <div>
-      <h2>Carrito De Compras</h2>
-      <h3>Productos</h3>
-      <h2>{data.name}</h2>
-      <h2>{data.price}</h2>
+     <h3>Carrito</h3>
+      <article className="box">
+        <button onClick={() => dispatch(clearCart())}>Limpiar Carrito</button>
+        {cart.map((item, index) => (
+          <Item
+            key={index}
+            data={item}
+            delOneFromCart={() => dispatch(delFromCart(item.id))}
+            delAllFromCart={() => dispatch(delFromCart(item.id, true))}
+          />
+        ))}
+      </article>
+      
     </div>
   );
 };

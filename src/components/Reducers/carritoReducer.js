@@ -1,32 +1,30 @@
 import { TYPES } from "../Actions/carritoActions";
-import { collection, query, where,documentId,getDocs } from "firebase/firestore";
+import { query,collection, doc, where,documentId,getDocs} from "firebase/firestore";
 import { db } from "../../Firebase/firebaseConfig";
 import {useState , useEffect} from "react";
 
+ 
 export const carritoInitialState =  {
       
 cart: []
   
 };
 
-
-export function carritoReducer(state, action) {
+  
+export function carritoReducer(state = carritoInitialState, action) {
+   
+  
+console.log(state,action);
+    
   switch (action.type) {
     case TYPES.ADD_TO_CART: {
-      
-
-      const itemBuy = 
-      query(
-        collection(db, "paintings"),
-        where(documentId(), "==", action.payload).get());
-       
-    console.log(itemBuy);
     
-
-      
+      console.log(state,action);
       return {
         ...state,
-        cart: [...state.cart, itemBuy ],
+        cart: [...state.cart, action.payload ],
+        
+        
       };
     }
     case TYPES.REMOVE_ONE_FROM_CART: {
