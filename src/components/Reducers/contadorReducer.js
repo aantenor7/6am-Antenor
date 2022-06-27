@@ -1,26 +1,15 @@
-import {TYPES} from '../Actions/contadorActions';
-
-
-export const contadorInitialState = {contador:0}
-
-export const contadorInit = (initialState) => {
-    return {
-        contador:initialState.contador = 0,
-    };
-};
-
-export function contadorReducer (state,action) {
+import { DECREMENT,INCREMENT,RESET } from "../../types";  
+  const initialState = 0;
+  
+  export default function contadorReducer(state = initialState, action) {
     switch (action.type) {
-        case TYPES.INCREMENT:
-            return {contador:state.contador + 1};
-        
-        case TYPES.INCREMENT_USER:
-            return {contador:state.contador + action.payload};
-        
-        case TYPES.DECREMENT:
-            return {contador:state.contador - 1};
-        
-        case TYPES.RESET:
-            return contadorInitialState;    
+      case INCREMENT:
+        return state + 1;
+      case DECREMENT:
+        return state - 1;
+      case RESET:
+        return initialState;
+      default:
+        return state;
     }
-}
+  }

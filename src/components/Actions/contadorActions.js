@@ -1,6 +1,5 @@
-export const TYPES ={
-    INCREMENT: "INCREMENT",
-    INCREMENT_USER: "INCREMENT_USER",
-    DECREMENT: "DECREMENT",
-    RESET: "RESET",
-};
+import {INCREMENT,DECREMENT,RESET} from "../../types";
+
+export const sumar = () => ({type: INCREMENT});
+export const restar = () => ({type: DECREMENT});
+export const reset = () => ({type: RESET});
